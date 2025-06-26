@@ -1,0 +1,14 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "credit_risk_model"
+version = "0.1.0"
+requires-python = ">=3.13"
+dependencies = [
+ "kaggle>=1.7.4.5",
+]
+
+[project.optional-dependencies]
+dev = []
