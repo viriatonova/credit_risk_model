@@ -1,5 +1,4 @@
 # Relatório do projeto
-- Targe valor indicando ocorrencia de 3.14% de inadimplência para os valores de treino
 
 ## Engenharia de Features
 
