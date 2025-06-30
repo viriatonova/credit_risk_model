@@ -6,7 +6,7 @@ sns.set_theme()
 
 
 def plot_woe_iv(df, cls, rotation_X=0):
-    x = np.array(df["woe"].index)
+    x = np.array(df["Bin_Range"])
     y = df["woe"]
     plt.figure(figsize=(20, 10))
     plt.plot(x, y, marker="o", linestyle="--", color="k")

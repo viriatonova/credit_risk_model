@@ -116,18 +116,17 @@ def create_iv_pivot_table_with_binning(df_base, csv_file, cls, num_bins=10):
     )
 
     # Calculate metrics
-    pivot_table["pct_non_events"] = pivot_table[0] / pivot_table[0].sum()
-    pivot_table["pct_events"] = pivot_table[1] / pivot_table[1].sum()
+    pivot_table["non_events"] = pivot_table[0] / pivot_table[0].sum()
+    pivot_table["events"] = pivot_table[1] / pivot_table[1].sum()
     pivot_table["woe"] = np.log(
-        pivot_table["pct_non_events"] / pivot_table["pct_events"]
+        pivot_table["non_events"] / pivot_table["events"]
     )
     pivot_table["iv"] = (
-        pivot_table["pct_non_events"] - pivot_table["pct_events"]
+        pivot_table["non_events"] - pivot_table["events"]
     ) * pivot_table["woe"]
 
     # Reset index for cleaner output and rename columns
     pivot_table = pivot_table.reset_index().rename(
         columns={f"{cls}_binned": "Bin_Range", 0: "Non_Default", 1: "Default"}
     )
-
     return pivot_table
